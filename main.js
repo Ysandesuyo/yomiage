@@ -112,6 +112,23 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
   const newChannel = newstate.channel;
 
   if (newChannel && newChannel.id !== oldChannel?.id) {
+
+
+    if(jsonyomu("notice").some(o=>o.guildid===newstate.guild.id.toString())){
+      if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).joinnotice){
+        const user=newstate.member;
+        if(user.user.bot){
+          return;
+        }
+        if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel===""){
+          return;
+        }
+        const channel = client.channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel);
+        await channel.send(`# vc参加\n**${user.user.displayName}**さんが <#${newstate.channelId}> に参加しました`);
+      }
+    }
+
+
     const connection = getVoiceConnection(newChannel.guild.id);
     if (connection && connection.joinConfig.channelId === newChannel.id) {
       if(jsonyomu("server").some(o=>o.guildid===newstate.guild.id.toString())){
@@ -161,6 +178,23 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
 
   // ユーザーがボイスチャンネルから退出した場合のみ処理
   if (oldChannel && oldChannel.id !== newChannel?.id) {
+
+    if(jsonyomu("notice").some(o=>o.guildid===newstate.guild.id.toString())){
+      if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).leftnotice){
+        const user=oldstate.member;
+        if(user.user.bot){
+          return;
+        }
+        if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel===""){
+          return;
+        }
+        const channel = client.channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel);
+        await channel.send(`# vc退出\n**${user.user.displayName}**さんが <#${oldstate.channelId}> から退出しました`);
+      }
+    }
+
+
+
     const botId = client.user.id;
     const connection = getVoiceConnection(oldChannel.guild.id);
     // BotがそのVCに接続している場合

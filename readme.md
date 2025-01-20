@@ -23,3 +23,9 @@ server.json
 user.json
 
 すべて [] だけ書き込む
+
+## 実行する
+
+com.bat を実行してから s.batを実行しましょう
+
+discord developer のサイトのそうさ方法は省略します、各自調べてください

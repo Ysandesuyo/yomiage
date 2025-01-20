@@ -89,9 +89,9 @@ module.exports = {
       }
     jsonkaku("notice",dat);
     if(kousinmoji.trim()===""){
-      await interaction.reply("何も更新しませんでした。\n\n現在の設定:"+`\n・参加を通知する:${dat.find(i=>i.guildid===interaction.guildId).joinnotice}`+`\n・退出を通知する:${dat.find(i=>i.guildid===interaction.guildId).leftnotice}`+`\n・通知するチャンネル:${dat.find(i=>i.guildid===interaction.guildId).channel ? dat.find(i=>i.guildid===interaction.guildId).channel : "未設定"}`);
+      await interaction.reply("何も更新しませんでした。\n\n現在の設定:"+`\n・参加を通知する:${dat.find(i=>i.guildid===interaction.guildId).joinnotice}`+`\n・退出を通知する:${dat.find(i=>i.guildid===interaction.guildId).leftnotice}`+`\n・通知するチャンネル:${dat.find(i=>i.guildid===interaction.guildId).channel ? "<#"+dat.find(i=>i.guildid===interaction.guildId).channel+">" : "未設定"}`);
     }else{
-      await interaction.reply("内容を更新しました:"+kousinmoji+"\n\n現在の設定:"+`\n・参加を通知する:${dat.find(i=>i.guildid===interaction.guildId).joinnotice}`+`\n・退出を通知する:${dat.find(i=>i.guildid===interaction.guildId).leftnotice}`+`\n・通知するチャンネル:${dat.find(i=>i.guildid===interaction.guildId).channel ? dat.find(i=>i.guildid===interaction.guildId).channel : "未設定"}`);
+      await interaction.reply("内容を更新しました:"+kousinmoji+"\n\n現在の設定:"+`\n・参加を通知する:${dat.find(i=>i.guildid===interaction.guildId).joinnotice}`+`\n・退出を通知する:${dat.find(i=>i.guildid===interaction.guildId).leftnotice}`+`\n・通知するチャンネル:${dat.find(i=>i.guildid===interaction.guildId).channel ? "<#"+dat.find(i=>i.guildid===interaction.guildId).channel+">" : "未設定"}`);
     }
     
     

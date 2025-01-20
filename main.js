@@ -125,7 +125,7 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
           return;
         }
         const channel = client.guilds.cache.get(newstate.guild.id).channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel)
-        await channel.send(`# vc参加\n**${user.user.displayName}**さんが <#${newstate.channelId}> に参加しました`);
+        await channel.send(`----------\n# vc参加\n**${user.user.displayName}**さんが <#${newstate.channelId}> に参加しました`);
       }
     }
   }
@@ -142,7 +142,7 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
         }
         const channel = client.guilds.cache.get(oldstate.guild.id).channels.cache.get(jsonyomu("notice").find(i=>i.guildid===oldstate.guild.id.toString()).channel)
         
-        await channel.send(`# vc退出\n**${user.user.displayName}**さんが <#${oldstate.channelId}> から退出しました`);
+        await channel.send(`----------\n# vc退出\n**${user.user.displayName}**さんが <#${oldstate.channelId}> から退出しました`);
       }
     }
   }

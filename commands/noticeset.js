@@ -74,9 +74,6 @@ module.exports = {
         }
       });
       channelsitaka=channel.id;
-    }else{
-      
-      channelsitaka="";
     }
 
 

@@ -21,6 +21,7 @@ data の中に
 nowyomi.json
 server.json
 user.json
+notice.json
 
 すべて [] だけ書き込む
 

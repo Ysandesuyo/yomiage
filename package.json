@@ -1,0 +1,23 @@
+{
+  "name": "yomiage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discord-player/extractor": "^4.5.1",
+    "@discordjs/builders": "^1.9.0",
+    "@discordjs/voice": "^0.18.0",
+    "@sapphire/shapeshift": "^4.0.0",
+    "cjp": "^2.3.1",
+    "discord-player": "^6.7.1",
+    "discord.js": "^14.16.3",
+    "ffmpeg-static": "^5.2.0",
+    "node-edge-tts": "^1.2.7"
+  }
+}

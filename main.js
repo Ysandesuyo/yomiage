@@ -13,7 +13,7 @@ const tts = new EdgeTTS({
   lang: 'ja-JP'
 });
 // discord.jsライブラリの中から必要な設定を呼び出し、変数に保存します
-const { Client, Events, GatewayIntentBits, Partials, WebhookClient, ChannelType,   } = require('discord.js');
+const { Client, Events, GatewayIntentBits, Partials, ChannelType } = require('discord.js');
 const { getVoiceConnection, createAudioResource, createAudioPlayer, AudioPlayerStatus } = require("@discordjs/voice");
 
 // 設定ファイルからトークン情報を呼び出し、変数に保存します

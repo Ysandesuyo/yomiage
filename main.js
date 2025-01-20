@@ -106,6 +106,7 @@ function play(guildid,filename){
   }
 }
 
+
 client.on("voiceStateUpdate",async(oldstate,newstate)=>{
   try{
   const oldChannel = oldstate.channel;
@@ -123,10 +124,40 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
         if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel===""){
           return;
         }
-        const channel = client.channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel);
+        const channel = client.guilds.cache.get(newstate.guild.id).channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel)
         await channel.send(`# vc参加\n**${user.user.displayName}**さんが <#${newstate.channelId}> に参加しました`);
       }
     }
+  }
+  if (oldChannel && oldChannel.id !== newChannel?.id) {
+
+    if(jsonyomu("notice").some(o=>o.guildid===newstate.guild.id.toString())){
+      if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).leftnotice){
+        const user=oldstate.member;
+        if(user.user.bot){
+          return;
+        }
+        if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel===""){
+          return;
+        }
+        const channel = client.guilds.cache.get(oldstate.guild.id).channels.cache.get(jsonyomu("notice").find(i=>i.guildid===oldstate.guild.id.toString()).channel)
+        
+        await channel.send(`# vc退出\n**${user.user.displayName}**さんが <#${oldstate.channelId}> から退出しました`);
+      }
+    }
+  }
+  }catch(e){
+    console.error(e);
+  }
+})
+
+client.on("voiceStateUpdate",async(oldstate,newstate)=>{
+  try{
+  const oldChannel = oldstate.channel;
+  const newChannel = newstate.channel;
+
+  if (newChannel && newChannel.id !== oldChannel?.id) {
+
 
 
     const connection = getVoiceConnection(newChannel.guild.id);
@@ -179,20 +210,7 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
   // ユーザーがボイスチャンネルから退出した場合のみ処理
   if (oldChannel && oldChannel.id !== newChannel?.id) {
 
-    if(jsonyomu("notice").some(o=>o.guildid===newstate.guild.id.toString())){
-      if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).leftnotice){
-        const user=oldstate.member;
-        if(user.user.bot){
-          return;
-        }
-        if(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel===""){
-          return;
-        }
-        const channel = client.channels.cache.get(jsonyomu("notice").find(i=>i.guildid===newstate.guild.id.toString()).channel);
-        await channel.send(`# vc退出\n**${user.user.displayName}**さんが <#${oldstate.channelId}> から退出しました`);
-      }
-    }
-
+    
 
 
     const botId = client.user.id;

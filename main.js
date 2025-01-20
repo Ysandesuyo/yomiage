@@ -120,7 +120,7 @@ client.on("voiceStateUpdate",async(oldstate,newstate)=>{
           const user=newstate.member;
           let yomi;
           if(user.user.id===client.user.id){
-            yomi = "ちじょうじょうたろうが読み上げを開始します！"
+            yomi = "読み上げを開始します！"
           }else{
             yomi = user.user.bot ? `ボットの${user.user.displayName}が参加しました` : `${user.user.displayName}さんが参加しました`;
           }

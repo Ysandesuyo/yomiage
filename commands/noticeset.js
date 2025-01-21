@@ -85,7 +85,7 @@ module.exports = {
       kousinmoji=kousinmoji+`\n・退出を通知する:${leftnoticesitaka}`
     }
     if (!(channelsitaka===null)){
-        kousinmoji=kousinmoji+`\n・通知するチャンネル:${channelsitaka?channelsitaka:"未設定"}`
+        kousinmoji=kousinmoji+`\n・通知するチャンネル:${channelsitaka?"<#"+channelsitaka+">":"未設定"}`
       }
     jsonkaku("notice",dat);
     if(kousinmoji.trim()===""){

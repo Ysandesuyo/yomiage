@@ -308,7 +308,7 @@ client.on(Events.MessageCreate,async (msg)=>{
 
   if(msg.content.charAt(0)===".")return;
 
-  let yomimoji = msg.content.replace(/https:\/\/.*/, "、リンク省略").replace(/</, "、").replace(/>/, "、");
+  let yomimoji = msg.content.replace(/https:\/\/[^\s]+/g, "、リンク省略").replace(/http:\/\/[^\s]+/g, "、リンク省略").replace(/</, "、").replace(/>/, "、");
   yomimoji = yomimoji.replace(/@(\d+)/g, (match, number) => {
     // 配列内から対応するオブジェクトを検索
     const replacement = msg.guild.members.cache.find(item => item.id === number);

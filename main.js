@@ -377,7 +377,6 @@ process.on("SIGINT",()=>{
 
 process.on("uncaughtException",(e)=>{
   console.log(e.name+"\n\n",e.message+"\n"+e.stack)
-  off();
 });
 
 //スラッシュコマンドに応答するには、interactionCreateのイベントリスナーを使う必要があります

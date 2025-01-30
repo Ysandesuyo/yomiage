@@ -4,7 +4,7 @@ const {jsonkaku,jsonyomu} = require("../main")
 try{
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('serverset')
+		.setName('readset')
 		.setDescription('サーバーに対する設定をします(これ以外も別コマンドで作成予定)')
     .addBooleanOption(o=>
       o.setName("readname")
